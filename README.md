@@ -78,10 +78,10 @@ node index.js
 
 ```bash
 # Build the image
-docker build --tag discordbot .
+docker build --tag groovebot .
 
 # Run the image
-docker run -d discordbot
+docker run -d groovebot
 ```
 
 ### Deploying commands
