@@ -12,15 +12,15 @@ You can find the tutorial about building a discord music bot [here](https://gabr
 * [Features & Commands](#features--commands)
 * [Common errors](#common-errors)
 * [Contributing](#contributing)
-* [Author](#author)
+* [Authors](#authors)
 * [License](#license)
 
 ## Requirements
 
-- [Node](https://nodejs.org/en/) - Version 16 or higher
-- [NPM](https://www.npmjs.com/)
-- [FFMPEG](https://www.ffmpeg.org/)
-- [Docker](https://www.docker.com/) (optional)
+* [Node](https://nodejs.org/en/) - Version 16 or higher
+* [NPM](https://www.npmjs.com/)
+* [FFMPEG](https://www.ffmpeg.org/)
+* [Docker](https://www.docker.com/) (optional)
 
 ## Getting started
 
@@ -39,17 +39,20 @@ cd groovebot/
 npm install
 
 # Configure Discord Bot Token
- echo "DISCORD_TOKEN='INSERT_YOUR_TOKEN_HERE'" > .env
+cp example.env .env
+nano .env
 ```
 
 ### Other environment variables
 
 Currently we also need to set the `DP_FORCE_YTDL_MOD` environment variable to override `ytdl-core` for the `discord-player`.
 
-```
+```yml
 DISCORD_TOKEN=INSERT_YOUR_TOKEN_HERE
 DP_FORCE_YTDL_MOD="@distube/ytdl-core"
 ```
+
+If you also intend to use `discord-player-youtubei`, you will need to add your YouTube authorization here as well. Instructions for obtaining the credentials can be found [here](https://github.com/retrouser955/discord-player-youtubei#signing-into-youtube)
 
 ### Required permissions
 
@@ -64,7 +67,6 @@ After cloning the project and installing all dependencies, you need to add your 
 ### Changing the status
 
 You can change the status of your discord bot by editing the `activity` and `activityType` variables inside the `config.json` file. `activityType` needs to be set to an integer with the following [options](https://discord-api-types.dev/api/discord-api-types-v10/enum/ActivityType).
-
 
 ### Starting the application
 
@@ -86,11 +88,11 @@ docker run -d discordbot
 
 Before you can use the bots slash command you first need to add them to your Discord server. You can use the `!deploy` command to do so.
 
-<img src="./assets/deploy-commands.png">
+![Deploy Commands](assets/deploy-commands.png)
 
 After deploying the commands you should be able to see and access them by typing a slash:
 
-<img src="./assets/commands.png">
+![Commands](assets/commands.png)
 
 ## Docker
 
@@ -102,7 +104,7 @@ docker pull ghcr.io/DJStompZone/groovebot:latest
 
 A Github Action automatically builds and push `amd64` and `arm64` to ghcr.io, all builds are based on the main branch.
 
-Only `:latest` tag is supported, otherwise use SHA256 from https://github.com/DJStompZone/groovebot/pkgs/container/groovebot for pinning to a specific commit.
+Only `:latest` tag is supported, otherwise use SHA256 from <https://github.com/DJStompZone/groovebot/pkgs/container/groovebot> for pinning to a specific commit.
 
 ## Features & Commands
 
@@ -139,7 +141,7 @@ Only `:latest` tag is supported, otherwise use SHA256 from https://github.com/DJ
 `/playtop YOUTUBE_URL`  
 `/playtop SONG_NAME`
 
-<img src="./assets/playing_song.png">
+![Playing Song](assets/playing_song.png)
 
 ### Playfile
 
@@ -263,9 +265,8 @@ You are welcome to contribute by submitting a Pull Request to the repository.
 
 ## Authors
 
-[DJ Stomp](https://discord.stomp.zone)
-[Gabriel Tanner](https://gabrieltanner.org/)
-
+* [DJ Stomp](https://discord.stomp.zone)
+* [Gabriel Tanner](https://gabrieltanner.org/)
 
 ## License
 
